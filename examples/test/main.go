@@ -4,6 +4,7 @@ import (
 	"github.com/nathany/bobblehat/sense/screen"
 	"github.com/nathany/bobblehat/sense/screen/color"
 	"github.com/nathany/bobblehat/sense/screen/texture"
+	"time"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 			},
 		}
 		screen.Draw(&t)
+		time.Sleep(1 * time.Microsecond)
 	}
 
 	//f, err := os.Create(backBuffer)
