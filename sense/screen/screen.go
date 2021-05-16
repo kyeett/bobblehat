@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	rgb565color "github.com/nathany/bobblehat/sense/screen/color"
-	"github.com/nathany/bobblehat/sense/screen/texture"
+	rgb565color "github.com/kyeett/bobblehat/sense/screen/color"
+	"github.com/kyeett/bobblehat/sense/screen/texture"
 )
 
 // FrameBuffer is an 8x8 texture that can draw to the LED Matrix.
@@ -102,6 +102,21 @@ func withImage(m image.Image) func(*FrameBuffer) {
 // Draw a buffer to the LED matrix screen.
 func Draw(fb *FrameBuffer) error {
 	return draw(displayDevice, fb)
+}
+
+// DrawAny a buffer to the LED matrix screen.
+func DrawAny(data interface{}) error {
+	return drawAny(displayDevice, data)
+}
+
+func drawAny(backBuffer string, data interface{}) error {
+	f, err := os.Create(backBuffer)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	return binary.Write(f, binary.LittleEndian, data)
 }
 
 var blankFrameBuffer = NewFrameBuffer()

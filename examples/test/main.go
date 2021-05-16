@@ -1,9 +1,8 @@
 package main
 
 import (
-	"github.com/nathany/bobblehat/sense/screen"
-	"github.com/nathany/bobblehat/sense/screen/color"
-	"github.com/nathany/bobblehat/sense/screen/texture"
+	"github.com/kyeett/bobblehat/sense/screen"
+	"github.com/kyeett/bobblehat/sense/screen/color"
 	"time"
 )
 
@@ -13,16 +12,17 @@ func main() {
 
 	// turn on LEDs on the first row
 	fb.SetPixel(0, 0, color.Red)
-	fb.SetPixel(1, 1, color.Blue)
+	fb.SetPixel(1, 1, color.Red)
 
 	for i := uint16(0); i < 65535; i++ {
-		t := screen.FrameBuffer{
-			Texture: &texture.Texture{
-				Pixels: []color.Color{color.Color(i), color.Color(i), color.Color(i)},
-			},
-		}
-		screen.Draw(&t)
-		time.Sleep(100 * time.Microsecond)
+		//t := screen.FrameBuffer{
+		//	Texture: &texture.Texture{
+		//		Pixels: []color.Color{color.Color(i), color.Color(i), color.Color(i)},
+		//	},
+		//}
+		//screen.Draw(&t)
+		screen.DrawAny(i)
+		time.Sleep(1 * time.Millisecond)
 	}
 
 	//f, err := os.Create(backBuffer)
