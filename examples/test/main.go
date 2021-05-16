@@ -49,5 +49,6 @@ func main() {
 func draw(red, green, blue uint8) {
 	r := red >> 3
 	g := green >> 2
-	screen.DrawAny(uint16(r) << 11 + uint16(g) << 5)
+	b := blue >> 3
+	screen.DrawAny(uint16(r) << 11 + uint16(g) << 5 + uint16(b))
 }
