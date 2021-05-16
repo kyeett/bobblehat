@@ -1,4 +1,4 @@
-# github.com/nathany/bobblehat v0.0.0-20170421151738-14b0d1b4643e
+# github.com/nathany/bobblehat v0.0.0-20170421151738-14b0d1b4643e => ./
 ## explicit
 github.com/nathany/bobblehat/sense/screen
 github.com/nathany/bobblehat/sense/screen/color
