@@ -17,22 +17,22 @@ func main() {
 	fb.SetPixel(1, 1, color.Red)
 
 	fmt.Println("red")
-	for i := uint8(0); i <= 255; i++ {
+	for i := uint8(0); i < 255; i++ {
 		draw(i, 0, 0)
 		time.Sleep(10 * time.Millisecond)
 	}
 	fmt.Println("green")
-	for i := uint8(0); i <= 255; i++ {
+	for i := uint8(0); i < 255; i++ {
 		draw(0, i, 0)
 		time.Sleep(10 * time.Millisecond)
 	}
 	fmt.Println("blue")
-	for i := uint8(0); i <= 255; i++ {
+	for i := uint8(0); i < 255; i++ {
 		draw(0, 0, i)
 		time.Sleep(10 * time.Millisecond)
 	}
 	fmt.Println("white")
-	for i := uint8(0); i <= 255; i++ {
+	for i := uint8(0); i < 255; i++ {
 		draw(i, i, i)
 		time.Sleep(10 * time.Millisecond)
 	}
@@ -48,5 +48,6 @@ func main() {
 
 func draw(red, green, blue uint8) {
 	r := red >> 3
-	screen.DrawAny(uint16(r) << 11)
+	g := green >> 2
+	screen.DrawAny(uint16(r) << 11 + uint16(g) << 5)
 }
