@@ -21,7 +21,7 @@ func main() {
 		draw(uint8(i), 0, 0)
 		time.Sleep(100 * time.Millisecond)
 	}
-	
+
 	//f, err := os.Create(backBuffer)
 	//if err != nil {
 	//	return err
@@ -33,5 +33,5 @@ func main() {
 
 func draw(red, green, blue uint8) {
 	r := red >> 3
-	screen.DrawAny(r << 11)
+	screen.DrawAny(uint16(r) << 11)
 }
