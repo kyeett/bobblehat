@@ -22,7 +22,7 @@ func main() {
 		//}
 		//screen.Draw(&t)
 		screen.DrawAny(i)
-		time.Sleep(1 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 	}
 
 	//f, err := os.Create(backBuffer)
